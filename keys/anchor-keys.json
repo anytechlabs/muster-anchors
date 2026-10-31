@@ -1,0 +1,13 @@
+[
+  {
+    "key_id": "BBxyQl6yHtyMdwSb4HOgXcm8Mzb4Pwuwdw9hhzLYSPk",
+    "created": "2026-10-07",
+    "status": "active",
+    "jwk": {
+      "kty": "EC",
+      "crv": "P-256",
+      "x": "Cfcg9UOTKVtXc8h8nQmwTs-6XPm-06tixroH1qq1ljY",
+      "y": "awTef-n0y_z99Z-oEh4WEYqkTNgYQcUSWniSrpfAwP4"
+    }
+  }
+]
