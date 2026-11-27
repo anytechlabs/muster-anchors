@@ -6,7 +6,7 @@
   "rules": [
     {
       "id": "append-only",
-      "rule": "Existing files under anchors/ must never be modified, renamed or deleted; only new days may be added as anchors/<yyyy>/<yyyy-mm-dd>.json. Each new file's prev_anchor_sha256 must name the previous day's file, and no day may be skipped (days with no entries are anchored too).",
+      "rule": "Existing files under anchors/ must never be modified, renamed or deleted; only new days may be added as anchors/<yyyy>/<yyyy-mm-dd>.json. The very first anchor has prev_anchor_sha256 null; every later file's prev_anchor_sha256 must name the previous day's file, and no day may be skipped (days with no entries are anchored too). A null prev_anchor_sha256 on any file after the first is a break in the chain.",
       "scope": ["anchors/**"],
       "severity": "high"
     },
