@@ -1,0 +1,26 @@
+{
+  "strictness": 2,
+  "commentTypes": ["logic", "syntax"],
+  "excludeAuthors": ["dependabot[bot]"],
+  "instructions": "This repository is Muster's public, append-only history of daily signed anchors and the public anchor keys. Only Muster's anchor job writes to it. Its value is that nobody can quietly rewrite it.",
+  "rules": [
+    {
+      "id": "append-only",
+      "rule": "Existing files under anchors/ must never be modified, renamed or deleted; only new days may be added as anchors/<yyyy>/<yyyy-mm-dd>.json. Each new file's prev_anchor_sha256 must name the previous day's file, and no day may be skipped (days with no entries are anchored too).",
+      "scope": ["anchors/**"],
+      "severity": "high"
+    },
+    {
+      "id": "public-keys-only",
+      "rule": "keys/anchor-keys.json holds public EC P-256 JWKs only (kty, crv, x, y). Flag any private component (d), any other secret, or a key_id that is not the RFC 7638 thumbprint of its JWK.",
+      "scope": ["keys/**"],
+      "severity": "high"
+    },
+    {
+      "id": "retired-keys-stay",
+      "rule": "Retired keys are marked retired, never removed, so older anchors still verify. Flag deletion of any key entry or a change to an existing key's jwk.",
+      "scope": ["keys/**"],
+      "severity": "high"
+    }
+  ]
+}
